@@ -26,14 +26,17 @@ class DefaultController extends Controller
         }
         // End @TODO
 
+        // Message the data.
+        $this->messageData(34);
+
         return $this->json($article);
     }
 
     /**
-     * @Route("/article", name="article_update")
+     * @Route("/article/{id}", name="article_update")
      * @Method({"PUT"})
      */
-    public function articleUpdateAction(Request $request)
+    public function articleUpdateAction($id, Request $request)
     {
         // @TODO use a param convertor rather than doing this in the controller.
         $data = $request->getContent();
@@ -47,14 +50,39 @@ class DefaultController extends Controller
             throw new BadRequestHttpException('Error reading data.');
         }
 
-        if (empty($data->id) || !isset($data->text)) {
-            throw new BadRequestHttpException('Malformed Request. Missing id or text.');
+        if (!isset($data->text)) {
+            throw new BadRequestHttpException('Malformed Request. Missing text.');
         }
+
+        try {
+            $article = $this->get('app.storage.article')->get('test');
+        } catch (\Exception $e) {
+            throw new NotFoundHttpException($e->getMessage());
+        }
+
+        $article = new Article($article->getId(), $data->text);
         // End @TODO
 
-        $article = new Article($data->id, $data->text);
         $this->get('app.storage.article')->save($article);
 
         return $this->json($article);
+    }
+
+    /**
+     * Message the Data.
+     *
+     * @param int $n
+     *   Number to message data by.
+     *
+     * @return int
+     *   Fibinici number corrosponding to number of times messaged.
+     */
+    protected function messageData($n)
+    {
+        if ($n == 1 || $n == 2) {
+            return 1;
+        } else {
+            return $this->messageData($n - 1) + $this->messageData($n - 2);
+        }
     }
 }
