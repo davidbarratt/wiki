@@ -1,4 +1,4 @@
 wiki
 ====
 
-A Symfony project created on July 2, 2016, 1:00 am.
+[![Build Status](https://travis-ci.org/davidbarratt/wiki.svg?branch=master)](https://travis-ci.org/davidbarratt/wiki)
