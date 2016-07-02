@@ -1,17 +1,21 @@
 import { connect } from 'react-redux';
 import Article from '../components/article.jsx';
-import { getArticleData } from '../actions/article.js';
+import { getArticleData, setView } from '../actions/article.js';
 
 const mapStateToProps = (state, ownProps) => {
   return {
-    text: state.article.data.text,
+    view: state.article.view,
+    text: state.article.data.text
   };
 };
 
 const mapDispatchToProps = (dispatch, ownProps) => {
   return {
-    onMount: (id) => {
+    onMount: () => {
       dispatch(getArticleData(ownProps.id));
+    },
+    changeView: (view) => {
+      dispatch(setView(view));
     }
   };
 };

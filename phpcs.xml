@@ -4,4 +4,5 @@
  <rule ref="PSR2" />
  <exclude-pattern>var/</exclude-pattern>
  <exclude-pattern>vendor/</exclude-pattern>
+ <exclude-pattern>web/</exclude-pattern>
 </ruleset>

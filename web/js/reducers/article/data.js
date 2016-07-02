@@ -9,6 +9,11 @@ const data = (state, action) => {
   switch (action.type) {
     case 'ARTICLE_ADD_DATA':
       return action.data;
+    case 'ARTICLE_DATA_SET_TEXT':
+      return {
+        id: state.id,
+        text: action.text
+      };
     default:
       return state;
   }

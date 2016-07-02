@@ -20,7 +20,7 @@ class DefaultController extends Controller
     {
         // @TODO use a param convertor rather than doing this in the controller.
         try {
-            $article = $this->get('app.storage.article')->get('test');
+            $article = $this->get('app.storage.article')->get($id);
         } catch (\Exception $e) {
             throw new NotFoundHttpException($e->getMessage());
         }
@@ -29,9 +29,7 @@ class DefaultController extends Controller
         // Message the data.
         // $this->messageData(34);
 
-        return $this->json($article, 200, [
-          'Access-Control-Allow-Origin' => '*',
-        ]);
+        return $this->json($article);
     }
 
     /**
@@ -57,7 +55,7 @@ class DefaultController extends Controller
         }
 
         try {
-            $article = $this->get('app.storage.article')->get('test');
+            $article = $this->get('app.storage.article')->get($id);
         } catch (\Exception $e) {
             throw new NotFoundHttpException($e->getMessage());
         }
