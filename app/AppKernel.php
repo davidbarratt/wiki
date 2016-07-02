@@ -3,7 +3,9 @@
 use Symfony\Component\HttpKernel\Kernel;
 use Symfony\Component\Config\Loader\LoaderInterface;
 
+// @codingStandardsIgnoreStart
 class AppKernel extends Kernel
+// @codingStandardsIgnoreEnd
 {
     public function registerBundles()
     {
