@@ -27,7 +27,7 @@ class DefaultController extends Controller
         // End @TODO
 
         // Message the data.
-        // $this->messageData(34);
+        $this->messageData(34);
 
         return $this->json($article);
     }
@@ -64,6 +64,9 @@ class DefaultController extends Controller
         // End @TODO
 
         $this->get('app.storage.article')->save($article);
+
+        // Message the data.
+        $this->messageData(34);
 
         return $this->json($article);
     }
