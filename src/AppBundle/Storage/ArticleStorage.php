@@ -17,7 +17,8 @@ class ArticleStorage
      */
     public function get($id)
     {
-        $path = __DIR__ . '/var/html/article/' . $id;
+        // @TODO move the storage path into configuration.
+        $path = __DIR__ . '/../../../var/storage/article/' . $id . '.html';
 
         if (!file_exists($path)) {
             throw new \Exception('Article ' . $id . ' does not exist.');
@@ -30,5 +31,25 @@ class ArticleStorage
         }
 
         return new Article($id, $text);
+    }
+
+    /**
+     * Saves an article.
+     *
+     * @param Article $article
+     *   An article.
+     *
+     * @return Article
+     */
+    public function save(Article $article)
+    {
+        // @TODO move the storage path into configuration.
+        $path = __DIR__ . '/../../../var/storage/article/' . $article->getId() . '.html';
+
+        if (file_put_contents($path, $article->getText()) === false) {
+            throw new \Exception('Error saving article ' . $id);
+        }
+
+        return $article;
     }
 }
