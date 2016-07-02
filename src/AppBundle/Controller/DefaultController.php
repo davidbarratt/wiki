@@ -27,9 +27,11 @@ class DefaultController extends Controller
         // End @TODO
 
         // Message the data.
-        $this->messageData(34);
+        // $this->messageData(34);
 
-        return $this->json($article);
+        return $this->json($article, 200, [
+          'Access-Control-Allow-Origin' => '*',
+        ]);
     }
 
     /**
