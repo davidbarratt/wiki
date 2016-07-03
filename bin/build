@@ -1,0 +1,6 @@
+composer install;
+npm install;
+compass compile;
+mkdir -p ./var/storage/article
+touch ./var/storage/article/Latest_plane_crash.html;
+[ ! -s ./var/storage/article/Latest_plane_crash.html ] && { echo "Stub Article" > ./var/storage/article/Latest_plane_crash.html; }
