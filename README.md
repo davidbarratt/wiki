@@ -3,18 +3,18 @@ wiki
 
 [![Build Status](https://travis-ci.org/davidbarratt/wiki.svg?branch=master)](https://travis-ci.org/davidbarratt/wiki)
 
-## Requirements
+### Requirements
 * [PHP](http://php.net) 5.6
 * [node.js](https://nodejs.org/en/) 6.*
 * [Compass](http://compass-style.org)
 
-## Setup
+### Setup
 Execute this command to build everything:
 ```
 ./bin/build
 ```
 
-# Run
+### Run
 Run the Server by executing
 ```
 php bin/console server:run
