@@ -1,5 +1,6 @@
 composer install;
 npm install;
+./node_modules/.bin/browserify web/js/index.jsx -o web/js/bundle.js;
 compass compile;
 mkdir -p ./var/storage/article
 touch ./var/storage/article/Latest_plane_crash.html;
